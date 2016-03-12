@@ -1,6 +1,6 @@
 /*
 * ----------------------------------------------------------------------------
-* “THE COFFEEWARE LICENSE” (Revision 1):
+* â€œTHE COFFEEWARE LICENSEâ€� (Revision 1):
 * <ihsan@kehribar.me> wrote this file. As long as you retain this notice you
 * can do whatever you want with this stuff. If we meet some day, and you think
 * this stuff is worth it, you can buy me a coffee in return.
@@ -16,6 +16,15 @@
 
 #include "nRF24L01.h"
 #include <stdint.h>
+
+//pins
+
+#define  CE 	0
+#define  CSN 	1
+#define  SCK 	2
+#define  MOSI 	3
+#define  MISO 	4
+
 
 #define LOW 0
 #define HIGH 1
