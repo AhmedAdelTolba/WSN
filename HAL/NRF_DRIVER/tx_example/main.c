@@ -1,6 +1,6 @@
 /*
 * ----------------------------------------------------------------------------
-* “THE COFFEEWARE LICENSE” (Revision 1):
+* â€œTHE COFFEEWARE LICENSEâ€� (Revision 1):
 * <ihsan@kehribar.me> wrote this file. As long as you retain this notice you
 * can do whatever you want with this stuff. If we meet some day, and you think
 * this stuff is worth it, you can buy me a coffee in return.
@@ -90,10 +90,10 @@ int main()
     while(1)
     {                
         /* Fill the data buffer */
-        data_array[0] = 0x00;
-        data_array[1] = 0xAA;
-        data_array[2] = 0x55;
-        data_array[3] = q++;                                    
+        data_array[0] = q;
+        data_array[1] = q;
+        data_array[2] = q;
+        data_array[3] = q;
 
         /* Automatically goes to TX mode */
         nrf24_send(data_array);        
@@ -124,7 +124,8 @@ int main()
 		// nrf24_powerDown();            
 
 		/* Wait a little ... */
-		_delay_ms(10);
+		q++ ;
+		_delay_ms(1000);
     }
 }
 /* ------------------------------------------------------------------------- */
