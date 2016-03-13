@@ -48,13 +48,13 @@ int main()
     /* Set the device addresses */
     nrf24_tx_address(tx_address);
     nrf24_rx_address(rx_address);
-
+DDRD=0xFF;
     while(1)
     {    
         if(nrf24_dataReady())
         {
             nrf24_getData(data_array);        
-
+             PORTD=data_array[0];
         }
     }
 }
