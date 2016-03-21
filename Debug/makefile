@@ -31,11 +31,14 @@ endif
 -include ../makefile.defs
 
 # Add inputs and outputs from these tool invocations to the build variables 
-LSS += \
-WSN.lss \
+FLASH_IMAGE += \
+WSN.hex \
 
 SIZEDUMMY += \
 sizedummy \
+
+AVRDUDEDUMMY += \
+avrdudedummy \
 
 
 # All Target
@@ -49,9 +52,9 @@ WSN.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-WSN.lss: WSN.elf
-	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S WSN.elf  >"WSN.lss"
+WSN.hex: WSN.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex WSN.elf  "WSN.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -61,12 +64,18 @@ sizedummy: WSN.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+avrdudedummy: WSN.elf
+	@echo 'Invoking: AVRDude'
+	C:\WinAVR-20100110\bin\avrdude -pm16 -cusbasp -u -Uflash:w:WSN.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0xd9:m
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) WSN.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(C_DEPS) WSN.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(FLASH_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:
