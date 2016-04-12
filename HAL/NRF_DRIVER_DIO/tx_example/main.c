@@ -50,11 +50,11 @@ int main()
 //
 //        /* Automatically goes to TX mode */
 
-        if(flag==0)
+        if(1)
         {
         nrf24_send(data_array);
         while(nrf24_isSending());
-        Auto_ACK();
+//        Auto_ACK();
         }
         else
         	nrf24_powerUpTx();
@@ -64,8 +64,8 @@ int main()
 
 
 		 /* Optionally, go back to RX mode ... */
-
-
+q++;
+        _delay_ms(2000);
     }
 }
 /* ------------------------------------------------------------------------- */
