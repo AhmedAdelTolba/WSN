@@ -152,7 +152,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1988
+.text           0x00000000     0x1916
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -261,122 +261,122 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00000a94                __fpcmp_parts_f
                 0x00000b46                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x00000b46      0x1a2 ./HAL/NRF_DRIVER_DIO/GETWAY/main.o
+ .text.main     0x00000b46      0x130 ./HAL/NRF_DRIVER_DIO/GETWAY/main.o
                 0x00000b46                main
  .text.Auto_ACK
-                0x00000ce8      0x186 ./HAL/NRF_DRIVER_DIO/GETWAY/main.o
-                0x00000ce8                Auto_ACK
+                0x00000c76      0x186 ./HAL/NRF_DRIVER_DIO/GETWAY/main.o
+                0x00000c76                Auto_ACK
  .text.DIO_voidInit
-                0x00000e6e       0x72 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x00000e6e                DIO_voidInit
+                0x00000dfc       0x72 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x00000dfc                DIO_voidInit
  .text.DIO_u8ReadPinVal
-                0x00000ee0       0x96 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x00000ee0                DIO_u8ReadPinVal
+                0x00000e6e       0x96 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x00000e6e                DIO_u8ReadPinVal
  .text.DIO_u8WritePinVal
-                0x00000f76       0xfc ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x00000f76                DIO_u8WritePinVal
+                0x00000f04       0xfc ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x00000f04                DIO_u8WritePinVal
  .text.DIO_u8ReadPortVal
-                0x00001072       0x4e ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x00001072                DIO_u8ReadPortVal
+                0x00001000       0x4e ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x00001000                DIO_u8ReadPortVal
  .text.DIO_u8WritePortVal
-                0x000010c0       0x68 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x000010c0                DIO_u8WritePortVal
+                0x0000104e       0x68 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x0000104e                DIO_u8WritePortVal
  .text.DIO_u8WritePinDir
-                0x00001128       0xa8 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x00001128                DIO_u8WritePinDir
+                0x000010b6       0xa8 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x000010b6                DIO_u8WritePinDir
  .text.DIO_u8WritePortDir
-                0x000011d0       0x46 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x000011d0                DIO_u8WritePortDir
+                0x0000115e       0x46 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x0000115e                DIO_u8WritePortDir
  .text.DIO_u8ReadPinDir
-                0x00001216       0x96 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x00001216                DIO_u8ReadPinDir
+                0x000011a4       0x96 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x000011a4                DIO_u8ReadPinDir
  .text.DIO_u8ReadPortDir
-                0x000012ac       0x4e ./HAL/NRF_DRIVER_DIO/DIO-prog.o
-                0x000012ac                DIO_u8ReadPortDir
+                0x0000123a       0x4e ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+                0x0000123a                DIO_u8ReadPortDir
  .text.nrf24_init
-                0x000012fa       0x22 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000012fa                nrf24_init
+                0x00001288       0x22 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001288                nrf24_init
  .text.nrf24_config
-                0x0000131c       0x8e ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x0000131c                nrf24_config
+                0x000012aa       0x8e ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000012aa                nrf24_config
  .text.nrf24_rx_address
-                0x000013aa       0x36 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000013aa                nrf24_rx_address
+                0x00001338       0x36 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001338                nrf24_rx_address
  .text.nrf24_payload_length
-                0x000013e0       0x12 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000013e0                nrf24_payload_length
+                0x0000136e       0x12 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x0000136e                nrf24_payload_length
  .text.nrf24_tx_address
-                0x000013f2       0x34 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000013f2                nrf24_tx_address
+                0x00001380       0x34 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001380                nrf24_tx_address
  .text.nrf24_dataReady
-                0x00001426       0x3e ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001426                nrf24_dataReady
+                0x000013b4       0x3e ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000013b4                nrf24_dataReady
  .text.nrf24_rxFifoEmpty
-                0x00001464       0x26 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001464                nrf24_rxFifoEmpty
+                0x000013f2       0x26 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000013f2                nrf24_rxFifoEmpty
  .text.nrf24_payloadLength
-                0x0000148a       0x32 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x0000148a                nrf24_payloadLength
+                0x00001418       0x32 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001418                nrf24_payloadLength
  .text.nrf24_getData
-                0x000014bc       0x4a ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000014bc                nrf24_getData
+                0x0000144a       0x4a ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x0000144a                nrf24_getData
  .text.nrf24_retransmissionCount
-                0x00001506       0x2a ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001506                nrf24_retransmissionCount
+                0x00001494       0x2a ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001494                nrf24_retransmissionCount
  .text.nrf24_send
-                0x00001530       0x66 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001530                nrf24_send
+                0x000014be       0x66 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000014be                nrf24_send
  .text.nrf24_isSending
-                0x00001596       0x32 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001596                nrf24_isSending
+                0x00001524       0x32 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001524                nrf24_isSending
  .text.nrf24_getStatus
-                0x000015c8       0x2c ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000015c8                nrf24_getStatus
+                0x00001556       0x2c ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001556                nrf24_getStatus
  .text.nrf24_lastMessageStatus
-                0x000015f4       0x46 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000015f4                nrf24_lastMessageStatus
+                0x00001582       0x46 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001582                nrf24_lastMessageStatus
  .text.nrf24_powerUpRx
-                0x0000163a       0x44 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x0000163a                nrf24_powerUpRx
+                0x000015c8       0x44 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000015c8                nrf24_powerUpRx
  .text.nrf24_powerUpTx
-                0x0000167e       0x1e ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x0000167e                nrf24_powerUpTx
+                0x0000160c       0x1e ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x0000160c                nrf24_powerUpTx
  .text.nrf24_powerDown
-                0x0000169c       0x1e ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x0000169c                nrf24_powerDown
+                0x0000162a       0x1e ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x0000162a                nrf24_powerDown
  .text.spi_transfer
-                0x000016ba       0xa8 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000016ba                spi_transfer
+                0x00001648       0xa8 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001648                spi_transfer
  .text.nrf24_transferSync
-                0x00001762       0x6e ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001762                nrf24_transferSync
+                0x000016f0       0x6e ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000016f0                nrf24_transferSync
  .text.nrf24_transmitSync
-                0x000017d0       0x48 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000017d0                nrf24_transmitSync
+                0x0000175e       0x48 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x0000175e                nrf24_transmitSync
  .text.nrf24_configRegister
-                0x00001818       0x38 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001818                nrf24_configRegister
+                0x000017a6       0x38 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000017a6                nrf24_configRegister
  .text.nrf24_readRegister
-                0x00001850       0x4a ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x00001850                nrf24_readRegister
+                0x000017de       0x4a ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x000017de                nrf24_readRegister
  .text.nrf24_writeRegister
-                0x0000189a       0x46 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x0000189a                nrf24_writeRegister
+                0x00001828       0x46 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x00001828                nrf24_writeRegister
  .text.nrf24_setupPins
-                0x000018e0       0x36 ./HAL/NRF_DRIVER_DIO/nrf24.o
-                0x000018e0                nrf24_setupPins
- .text.libgcc   0x00001916        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00001916        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00001916        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00001916       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00001916                __prologue_saves__
- .text.libgcc   0x0000194e       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x0000194e                __epilogue_restores__
-                0x00001984                . = ALIGN (0x2)
+                0x0000186e       0x36 ./HAL/NRF_DRIVER_DIO/nrf24.o
+                0x0000186e                nrf24_setupPins
+ .text.libgcc   0x000018a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000018a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000018a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000018a4       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000018a4                __prologue_saves__
+ .text.libgcc   0x000018dc       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x000018dc                __epilogue_restores__
+                0x00001912                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001984        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00001984                exit
-                0x00001984                _exit
+ .fini9         0x00001912        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001912                exit
+                0x00001912                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -395,11 +395,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001984        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001912        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001988                _etext = .
+                0x00001916                _etext = .
 
-.data           0x00800060       0x34 load address 0x00001988
+.data           0x00800060       0x34 load address 0x00001916
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -491,8 +491,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x008000a4        0x1 ./HAL/NRF_DRIVER_DIO/nrf24.o
                 0x008000a4                payload_len
                 0x008000a5                PROVIDE (__bss_end, .)
-                0x00001988                __data_load_start = LOADADDR (.data)
-                0x000019bc                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001916                __data_load_start = LOADADDR (.data)
+                0x0000194a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000a5        0x0
                 0x008000a5                PROVIDE (__noinit_start, .)
@@ -517,12 +517,12 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1ba8
+.stab           0x00000000     0x1b00
  *(.stab)
- .stab          0x00000000      0x720 ./HAL/NRF_DRIVER_DIO/GETWAY/main.o
- .stab          0x00000720      0x828 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
+ .stab          0x00000000      0x678 ./HAL/NRF_DRIVER_DIO/GETWAY/main.o
+ .stab          0x00000678      0x828 ./HAL/NRF_DRIVER_DIO/DIO-prog.o
                                 0x834 (size before relaxing)
- .stab          0x00000f48      0xc60 ./HAL/NRF_DRIVER_DIO/nrf24.o
+ .stab          0x00000ea0      0xc60 ./HAL/NRF_DRIVER_DIO/nrf24.o
                                 0xe28 (size before relaxing)
 
 .stabstr        0x00000000      0xf28
