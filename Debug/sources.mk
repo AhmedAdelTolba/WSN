@@ -22,6 +22,6 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-HAL/NRF_DRIVER_DIO/tx_example \
 HAL/NRF_DRIVER_DIO \
+HAL/NRF_DRIVER_DIO/GETWAY \
 
