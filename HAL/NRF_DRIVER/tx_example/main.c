@@ -118,7 +118,7 @@ int main()
 		xprintf("> Retranmission count: %d\r\n",temp);
 
 		/* Optionally, go back to RX mode ... */
-		nrf24_powerUpRx();
+		//nrf24_powerUpRx();
 
 		/* Or you might want to power down after TX */
 		// nrf24_powerDown();            
