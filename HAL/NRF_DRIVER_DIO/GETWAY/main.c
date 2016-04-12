@@ -52,25 +52,25 @@ int main()
 //
 //        /* Automatically goes to TX mode */
         nrf24_powerUpRx();
-        	_delay_ms(2000);
+        	_delay_ms(200);
   if(nrf24_dataReady())
   {
-//	   nrf24_getData(rx_arr);
-//	   if (count==0)
-//	   {
-//		nrf24_tx_address(tx_addressNODE);
-//		nrf24_send(rx_arr);
-//        while(nrf24_isSending());
-//        //count=1 ;
+	   nrf24_getData(rx_arr);
+	   if (count==0)
+	   {
+		nrf24_tx_address(tx_addressNODE);
+		nrf24_send(rx_arr);
+        while(nrf24_isSending());
+        //count=1 ;
       DIO_u8WritePortVal(2,0xFE);
-//	   }
-//	   else if (count==1)
-//	   {
-//		   nrf24_tx_address(tx_addressCOR);
-//		   nrf24_send(rx_arr);
-//		   while(nrf24_isSending());
-//		   count=0 ;
-//	   }
+	   }
+	   else if (count==1)
+	   {
+		   nrf24_tx_address(tx_addressCOR);
+		   nrf24_send(rx_arr);
+		   while(nrf24_isSending());
+		   count=0 ;
+	   }
   }
         /* Wait for transmission to end */
 
