@@ -10,19 +10,26 @@
 
 #include "../nrf24.h"
 #include <util/delay.h>
+#include "../DIO-interface.h"
+
+#define mx_retransmetion 15
 
 uint8_t temp;
 uint8_t q = 1;
 uint8_t data_array[4];
 uint8_t akc_array[4]={255,255,255,255};
-uint8_t tx_address[5] = {0xE7,0xE7,0xE7,0xE7,0xE7};
-uint8_t rx_address[5] = {0xD7,0xD7,0xD7,0xD7,0xD7};
+uint8_t tx_address[5] = {0xAA,0xFF,0x12,0xCB,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
+uint8_t rx_address[5] = {0xD7,0xD7,0xD7,0xD7,0xD7}; // bt7ot el address bta3ak law enta rx
+uint8_t rx_arr[4]={0};
 uint32_t x ;
+uint8_t counter=0 ,flag=0 ;
 /* ------------------------------------------------------------------------- */
+void Auto_ACK() ;
+
 int main()
 {
 
-
+	DIO_voidInit();
     /* init hardware pins */
     nrf24_init();
     
@@ -31,7 +38,7 @@ int main()
 
     /* Set the device addresses */
     nrf24_tx_address(tx_address);
-    nrf24_rx_address(rx_address);    
+    nrf24_rx_address(rx_address);
 
     while(1)
     {                
@@ -43,45 +50,62 @@ int main()
 //
 //        /* Automatically goes to TX mode */
 
+        if(flag==0)
+        {
         nrf24_send(data_array);
+        while(nrf24_isSending());
+        Auto_ACK();
+        }
+        else
+        	nrf24_powerUpTx();
+
 
         /* Wait for transmission to end */
-        while(nrf24_isSending());
 
-        /* Make analysis on last tranmission attempt */
-        temp = nrf24_lastMessageStatus();
-
-        if(temp == NRF24_TRANSMISSON_OK)
-        {                    
-
-        }
-        else if(temp == NRF24_MESSAGE_LOST)
-        {                    
-
-        }
-        
-		/* Retranmission count indicates the tranmission quality */
-		temp = nrf24_retransmissionCount();
-//		akc_array[0]=temp;
-//		akc_array[1]=temp;
-//		akc_array[2]=temp;
-//		akc_array[3]=temp;
-//
-//		 nrf24_send(akc_array);
-//		 /* Wait for transmission to end */
-//		 while(nrf24_isSending());
 
 		 /* Optionally, go back to RX mode ... */
-		nrf24_powerUpRx();
 
-		/* Or you might want to power down after TX */
-		// nrf24_powerDown();            
 
-		/* Wait a little ... */
-
-		_delay_ms(3000);
-		q++;
-//		break;
     }
 }
 /* ------------------------------------------------------------------------- */
+void Auto_ACK()
+{
+
+
+while(counter<mx_retransmetion)
+{
+	nrf24_powerUpRx();
+	_delay_ms(200);
+
+		if(nrf24_dataReady())
+		{
+			nrf24_getData(rx_arr);
+
+			if(rx_arr[0]==1)
+			{
+				q++;
+				counter=0;
+				break ;
+			}
+			else
+			{
+				counter++ ;
+				nrf24_send(data_array);
+				 while(nrf24_isSending());
+			}
+
+		}
+		else
+		{
+			counter++ ;
+			nrf24_send(data_array);
+			   while(nrf24_isSending());
+		}
+
+
+}
+
+if(counter==15)
+       	flag=1 ;
+}

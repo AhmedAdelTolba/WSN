@@ -34,8 +34,17 @@ endif
 LSS += \
 WSN.lss \
 
+FLASH_IMAGE += \
+WSN.hex \
+
+EEPROM_IMAGE += \
+WSN.eep \
+
 SIZEDUMMY += \
 sizedummy \
+
+AVRDUDEDUMMY += \
+avrdudedummy \
 
 
 # All Target
@@ -45,7 +54,7 @@ all: WSN.elf secondary-outputs
 WSN.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,WSN.map -mmcu=atmega16 -o "WSN.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,WSN.map -mmcu=atmega32 -o "WSN.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -55,18 +64,36 @@ WSN.lss: WSN.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+WSN.hex: WSN.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex WSN.elf  "WSN.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+WSN.eep: WSN.elf
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex WSN.elf  "WSN.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: WSN.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega16 WSN.elf
+	-avr-size --format=avr --mcu=atmega32 WSN.elf
+	@echo 'Finished building: $@'
+	@echo ' '
+
+avrdudedummy: WSN.elf
+	@echo 'Invoking: AVRDude'
+	C:\WinAVR-20100110\bin\avrdude -pm32 -cusbasp -u -Uflash:w:WSN.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0xd9:m
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) WSN.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) WSN.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:
