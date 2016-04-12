@@ -16,10 +16,14 @@ int main()
 	{
 	0xD7, 0xD7, 0xD7, 0xD7, 0xD7
 	};
+//    uint8_t rx_address[5] =  //////////my address as a reciever
+//		{
+//		0xaa, 0xff, 0x12, 0xcb, 0x57
+//		};
     uint8_t rx_address[5] =  //////////my address as a reciever
-		{
-		0xaa, 0xff, 0x12, 0xcb, 0x57
-		};
+   		{
+   		0xcf, 0xcf, 0xcf, 0xcf, 0xcf
+   		};
 
     uint8_t sent_packet[4] =
 	{
@@ -76,6 +80,7 @@ int main()
 	    _delay_ms(100);
 
 	    nrf24_powerUpTx();
+
 	    nrf24_send(sent_packet);
 	    while (nrf24_isSending())
 		;
