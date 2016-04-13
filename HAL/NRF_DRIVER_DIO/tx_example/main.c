@@ -50,22 +50,31 @@ int main()
 //
 //        /* Automatically goes to TX mode */
 
-        if(1)
+        if(flag==0)
         {
         nrf24_send(data_array);
         while(nrf24_isSending());
         //Auto_ACK();
+    	flag=1 ;
         }
         else
-        	nrf24_powerUpTx();
+        {
+//        	nrf24_powerUpRx();
+        	nrf24_powerUpRx();
+        		_delay_ms(15);
 
-
+        			if(nrf24_dataReady())
+        			{
+        				nrf24_getData(rx_arr);
+                        DIO_u8WritePortVal(3,~rx_arr[0]);
+        			}
+        }
         /* Wait for transmission to end */
 
 
 		 /* Optionally, go back to RX mode ... */
-q++ ;
-_delay_ms(400);
+//q++ ;
+//_delay_ms(400);
     }
 }
 /* --------------\----------------------------------------------------------- */
