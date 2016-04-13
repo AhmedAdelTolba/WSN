@@ -56,7 +56,7 @@ int main()
   if(nrf24_dataReady())
   {
 	   nrf24_getData(rx_arr);
-	   DIO_u8WritePortVal(2,0xfe);
+	   DIO_u8WritePortVal(2,rx_arr[0]);
 	   if (1)
 	   {
 		//nrf24_tx_address(tx_addressNODE);
