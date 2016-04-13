@@ -19,7 +19,7 @@ uint8_t q = 1;
 uint8_t data_array[4];
 uint8_t akc_array[4]={255,255,255,255};
 uint8_t tx_address[5] = {0xAa,0xff,0x12,0xcb,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
-uint8_t rx_address[5] = {0xD7,0xD7,0xD7,0xD7,0xD7}; // bt7ot el address bta3ak law enta rx
+uint8_t rx_address[5] = {0xee,0xff,0x12,0xcb,0x57}; // bt7ot el address bta3ak law enta rx
 uint8_t rx_arr[4]={0};
 uint32_t x ;
 uint8_t counter=0 ,flag=0 ;
@@ -61,7 +61,7 @@ int main()
         {
 //        	nrf24_powerUpRx();
         	nrf24_powerUpRx();
-        		_delay_ms(15);
+//        		_delay_ms(1000);
 
         			if(nrf24_dataReady())
         			{
