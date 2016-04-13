@@ -9,7 +9,6 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include HAL/NRF_DRIVER_DIO/tx_example/subdir.mk
--include HAL/NRF_DRIVER_DIO/GETWAY/subdir.mk
 -include HAL/NRF_DRIVER_DIO/subdir.mk
 -include subdir.mk
 -include objects.mk
