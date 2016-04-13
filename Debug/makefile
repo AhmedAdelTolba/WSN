@@ -54,7 +54,7 @@ all: WSN.elf secondary-outputs
 WSN.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,WSN.map -mmcu=atmega16 -o "WSN.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,WSN.map -mmcu=atmega32 -o "WSN.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -78,13 +78,13 @@ WSN.eep: WSN.elf
 
 sizedummy: WSN.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega16 WSN.elf
+	-avr-size --format=avr --mcu=atmega32 WSN.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 avrdudedummy: WSN.elf
 	@echo 'Invoking: AVRDude'
-	C:\WinAVR-20100110\bin\avrdude -pm16 -cusbasp -u -Uflash:w:WSN.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0xd9:m
+	C:\WinAVR-20100110\bin\avrdude -pm32 -cusbasp -u -Uflash:w:WSN.hex:a -Ulfuse:w:0xff:m -Uhfuse:w:0xd9:m
 	@echo 'Finished building: $@'
 	@echo ' '
 
