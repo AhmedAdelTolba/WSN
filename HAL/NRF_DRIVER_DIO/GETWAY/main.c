@@ -47,7 +47,7 @@ int main()
 
 //        /* Automatically goes to TX mode */
         nrf24_powerUpRx();
-        	//_delay_ms(15);
+        	_delay_ms(15);
   if(nrf24_dataReady())
   {
 	   nrf24_getData(rx_arr);
@@ -68,7 +68,7 @@ int main()
 		   nrf24_send(rx_arr);
 		   while(nrf24_isSending());
 		 //  count=0 ;
-		   DIO_u8WritePortVal(3,~rx_arr[0]);
+		//   DIO_u8WritePortVal(3,~rx_arr[0]);
 	   }
   }
 
