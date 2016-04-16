@@ -54,7 +54,7 @@ int main()
 
 	   if (count==0)
 	   {
-
+		   DIO_u8WritePortVal(3,~rx_arr[0]);
 		   nrf24_tx_address(tx_addressNODE);
 		   nrf24_send(rx_arr);
 		   while(nrf24_isSending());
@@ -62,7 +62,7 @@ int main()
 	   }
 	   else if (count==1)
 	   {
-		   DIO_u8WritePortVal(3,~rx_arr[0]);
+
 		   nrf24_tx_address(tx_addressCOR);
 		   nrf24_send(rx_arr);
 		   while(nrf24_isSending());

@@ -1658,39 +1658,39 @@ _delay_loop_2(uint16_t __count)
 	   if (count==0)
      c74:	80 91 9a 00 	lds	r24, 0x009A
      c78:	88 23       	and	r24, r24
-     c7a:	81 f4       	brne	.+32     	; 0xc9c <main+0x156>
-	   {
-
-		   nrf24_tx_address(tx_addressNODE);
-     c7c:	8d e6       	ldi	r24, 0x6D	; 109
-     c7e:	90 e0       	ldi	r25, 0x00	; 0
-     c80:	0e 94 ef 09 	call	0x13de	; 0x13de <nrf24_tx_address>
-		   nrf24_send(rx_arr);
-     c84:	84 e9       	ldi	r24, 0x94	; 148
-     c86:	90 e0       	ldi	r25, 0x00	; 0
-     c88:	0e 94 8e 0a 	call	0x151c	; 0x151c <nrf24_send>
-		   while(nrf24_isSending());
-     c8c:	0e 94 c1 0a 	call	0x1582	; 0x1582 <nrf24_isSending>
-     c90:	88 23       	and	r24, r24
-     c92:	e1 f7       	brne	.-8      	; 0xc8c <main+0x146>
-		   count=1 ;
-     c94:	81 e0       	ldi	r24, 0x01	; 1
-     c96:	80 93 9a 00 	sts	0x009A, r24
-     c9a:	6f cf       	rjmp	.-290    	; 0xb7a <main+0x34>
-	   }
-	   else if (count==1)
-     c9c:	80 91 9a 00 	lds	r24, 0x009A
-     ca0:	81 30       	cpi	r24, 0x01	; 1
-     ca2:	09 f0       	breq	.+2      	; 0xca6 <main+0x160>
-     ca4:	6a cf       	rjmp	.-300    	; 0xb7a <main+0x34>
+     c7a:	c1 f4       	brne	.+48     	; 0xcac <main+0x166>
 	   {
 		   DIO_u8WritePortVal(3,~rx_arr[0]);
-     ca6:	80 91 94 00 	lds	r24, 0x0094
-     caa:	98 2f       	mov	r25, r24
-     cac:	90 95       	com	r25
-     cae:	83 e0       	ldi	r24, 0x03	; 3
-     cb0:	69 2f       	mov	r22, r25
-     cb2:	0e 94 56 08 	call	0x10ac	; 0x10ac <DIO_u8WritePortVal>
+     c7c:	80 91 94 00 	lds	r24, 0x0094
+     c80:	98 2f       	mov	r25, r24
+     c82:	90 95       	com	r25
+     c84:	83 e0       	ldi	r24, 0x03	; 3
+     c86:	69 2f       	mov	r22, r25
+     c88:	0e 94 56 08 	call	0x10ac	; 0x10ac <DIO_u8WritePortVal>
+		   nrf24_tx_address(tx_addressNODE);
+     c8c:	8d e6       	ldi	r24, 0x6D	; 109
+     c8e:	90 e0       	ldi	r25, 0x00	; 0
+     c90:	0e 94 ef 09 	call	0x13de	; 0x13de <nrf24_tx_address>
+		   nrf24_send(rx_arr);
+     c94:	84 e9       	ldi	r24, 0x94	; 148
+     c96:	90 e0       	ldi	r25, 0x00	; 0
+     c98:	0e 94 8e 0a 	call	0x151c	; 0x151c <nrf24_send>
+		   while(nrf24_isSending());
+     c9c:	0e 94 c1 0a 	call	0x1582	; 0x1582 <nrf24_isSending>
+     ca0:	88 23       	and	r24, r24
+     ca2:	e1 f7       	brne	.-8      	; 0xc9c <main+0x156>
+		   count=1 ;
+     ca4:	81 e0       	ldi	r24, 0x01	; 1
+     ca6:	80 93 9a 00 	sts	0x009A, r24
+     caa:	67 cf       	rjmp	.-306    	; 0xb7a <main+0x34>
+	   }
+	   else if (count==1)
+     cac:	80 91 9a 00 	lds	r24, 0x009A
+     cb0:	81 30       	cpi	r24, 0x01	; 1
+     cb2:	09 f0       	breq	.+2      	; 0xcb6 <main+0x170>
+     cb4:	62 cf       	rjmp	.-316    	; 0xb7a <main+0x34>
+	   {
+
 		   nrf24_tx_address(tx_addressCOR);
      cb6:	82 e7       	ldi	r24, 0x72	; 114
      cb8:	90 e0       	ldi	r25, 0x00	; 0
