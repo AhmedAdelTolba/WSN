@@ -15,10 +15,10 @@
 #define mx_retransmetion 15
 
 uint8_t temp;
-uint8_t q = 0x55;
+uint8_t q = 0;
 uint8_t data_array[4];
 uint8_t akc_array[4]={255,255,255,255};
-uint8_t tx_address[5] = {0xAa,0xff,0x12,0xcb,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
+uint8_t tx_address[5] = {0xaa,0xee,0x12,0xcb,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
 uint8_t rx_address[5] = {0xee,0xff,0x12,0xcb,0x57}; // bt7ot el address bta3ak law enta rx
 uint8_t rx_arr[4]={0};
 uint32_t x ;
@@ -50,19 +50,18 @@ int main()
 //
 //        /* Automatically goes to TX mode */
 
-        if(flag==0)
+        if(flag==1)
         {
         nrf24_send(data_array);
         while(nrf24_isSending());
         //Auto_ACK();
     	flag=1 ;
-    	//_delay_ms(100);
+
         }
         else
         {
-//        	nrf24_powerUpRx();
+
         	nrf24_powerUpRx();
-//        		_delay_ms(1000);
 
         			if(nrf24_dataReady())
         			{
@@ -86,13 +85,13 @@ void Auto_ACK()
 while(counter<mx_retransmetion)
 {
 	nrf24_powerUpRx();
-	_delay_ms(400);
+	_delay_ms(50);
 
 		if(nrf24_dataReady())
 		{
 			nrf24_getData(rx_arr);
 
-			if(rx_arr[0]==1)
+			if(rx_arr[0]==0x55)
 			{
 				q++;
 				counter=0;
@@ -112,7 +111,6 @@ while(counter<mx_retransmetion)
 			nrf24_send(data_array);
 			   while(nrf24_isSending());
 		}
-
 
 }
 
