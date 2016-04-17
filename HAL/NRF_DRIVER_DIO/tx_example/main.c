@@ -62,14 +62,14 @@ int main()
         {
 
 
-        	 //_delay_ms(15);
+
         			if(nrf24_dataReady())
         			{
         				nrf24_getData(rx_arr);
-                        //DIO_u8WritePortVal(3,~rx_arr[0]);
+                        DIO_u8WritePortVal(3,~rx_arr[0]);
                         q++;
         				flag=0;
-                        //_delay_ms(200);
+
         			}
         }
         /* Wait for transmission to end */
