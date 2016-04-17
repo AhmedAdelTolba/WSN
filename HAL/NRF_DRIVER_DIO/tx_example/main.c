@@ -15,7 +15,7 @@
 #define mx_retransmetion 15
 
 uint8_t temp;
-uint8_t q = 0x55;
+uint8_t q = 1;
 uint8_t data_array[4];
 uint8_t akc_array[4]={255,255,255,255};
 uint8_t tx_address[5] = {0xAA,0xff,0x12,0xcb,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
@@ -66,8 +66,9 @@ int main()
         			if(nrf24_dataReady())
         			{
         				nrf24_getData(rx_arr);
-                        DIO_u8WritePortVal(3,~rx_arr[0]);
-                        flag=0;
+                        //DIO_u8WritePortVal(3,~rx_arr[0]);
+                        q++;
+        				flag=0;
                         _delay_ms(200);
         			}
         }
