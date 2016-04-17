@@ -67,6 +67,8 @@ int main()
         			{
         				nrf24_getData(rx_arr);
                         DIO_u8WritePortVal(3,~rx_arr[0]);
+                        flag=0;
+                        _delay_ms(200);
         			}
         }
         /* Wait for transmission to end */
