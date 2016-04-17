@@ -41,32 +41,33 @@ int main()
     /* Set the device addresses */
     nrf24_tx_address(tx_addressNODE);
     nrf24_rx_address(rx_address);
-
+    nrf24_powerUpRx();
     while(1)
     {                
 
 //        /* Automatically goes to TX mode */
-        nrf24_powerUpRx();
-        	_delay_ms(15);
+
+        //	_delay_ms(15);
   if(nrf24_dataReady())
   {
 	   nrf24_getData(rx_arr);
 
-	   if (count==1)
+	   if (count==0)
 	   {
-
 		   nrf24_tx_address(tx_addressNODE);
 		   nrf24_send(rx_arr);
 		   while(nrf24_isSending());
 		   count=1 ;
+		   nrf24_powerUpRx();
 	   }
-	   else if (count==0)
+	   else if (count==1)
 	   {
 		   DIO_u8WritePortVal(3,~rx_arr[0]);
 		   nrf24_tx_address(tx_addressCOR);
 		   nrf24_send(rx_arr);
 		   while(nrf24_isSending());
-		   //count=0 ;
+		   count=0 ;
+		   nrf24_powerUpRx();
 	   }
   }
   //_delay_ms(15);
