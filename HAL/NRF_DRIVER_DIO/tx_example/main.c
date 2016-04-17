@@ -18,7 +18,7 @@ uint8_t temp;
 uint8_t q = 1;
 uint8_t data_array[4];
 uint8_t akc_array[4]={255,255,255,255};
-uint8_t tx_address[5] = {0xAA,0xff,0x12,0xcb,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
+uint8_t tx_address[5] = {0xAA,0xee,0x12,0xcb,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
 uint8_t rx_address[5] = {0xee,0xff,0x12,0xcb,0x57}; // bt7ot el address bta3ak law enta rx
 uint8_t rx_arr[4]={0};
 uint32_t x ;
@@ -56,20 +56,20 @@ int main()
         while(nrf24_isSending());
         //Auto_ACK();
     	flag=1 ;
-
+    	nrf24_powerUpRx();
         }
         else
         {
 
-        	nrf24_powerUpRx();
 
+        	 //_delay_ms(15);
         			if(nrf24_dataReady())
         			{
         				nrf24_getData(rx_arr);
                         //DIO_u8WritePortVal(3,~rx_arr[0]);
                         q++;
         				flag=0;
-                        _delay_ms(200);
+                        //_delay_ms(200);
         			}
         }
         /* Wait for transmission to end */
