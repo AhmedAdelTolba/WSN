@@ -10,7 +10,7 @@
 
 #include "../nrf24.h"
 #include <util/delay.h>
-#include "../DIO-interface.h"
+#
 
 #define mx_retransmetion 15
 
@@ -29,7 +29,7 @@ void Auto_ACK() ;
 int main()
 {
 
-	DIO_voidInit();
+
     /* init hardware pins */
     nrf24_init();
     
@@ -66,7 +66,7 @@ int main()
         			if(nrf24_dataReady())
         			{
         				nrf24_getData(rx_arr);
-                        DIO_u8WritePortVal(3,~rx_arr[0]);
+                        //DIO_u8WritePortVal(3,~rx_arr[0]);
                         q++;
         				flag=0;
 

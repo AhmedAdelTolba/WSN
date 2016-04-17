@@ -4,15 +4,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../HAL/NRF_DRIVER_DIO/DIO-prog.c \
 ../HAL/NRF_DRIVER_DIO/nrf24.c 
 
 OBJS += \
-./HAL/NRF_DRIVER_DIO/DIO-prog.o \
 ./HAL/NRF_DRIVER_DIO/nrf24.o 
 
 C_DEPS += \
-./HAL/NRF_DRIVER_DIO/DIO-prog.d \
 ./HAL/NRF_DRIVER_DIO/nrf24.d 
 
 

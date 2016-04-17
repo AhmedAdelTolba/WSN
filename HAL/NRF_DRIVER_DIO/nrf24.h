@@ -29,6 +29,9 @@
 #define LOW 0
 #define HIGH 1
 
+#define DIO_u8LOW    0
+#define DIO_u8HIGH   1
+
 #define nrf24_ADDR_LEN 5
 #define nrf24_CONFIG ((1<<EN_CRC)|(0<<CRCO))
 
