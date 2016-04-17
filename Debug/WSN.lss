@@ -1667,8 +1667,8 @@ _delay_loop_2(uint16_t __count)
      c84:	83 e0       	ldi	r24, 0x03	; 3
      c86:	69 2f       	mov	r22, r25
      c88:	0e 94 53 08 	call	0x10a6	; 0x10a6 <DIO_u8WritePortVal>
-		   nrf24_tx_address(tx_addressCOR);
-     c8c:	82 e7       	ldi	r24, 0x72	; 114
+		   nrf24_tx_address(tx_addressNODE);
+     c8c:	8d e6       	ldi	r24, 0x6D	; 109
      c8e:	90 e0       	ldi	r25, 0x00	; 0
      c90:	0e 94 ec 09 	call	0x13d8	; 0x13d8 <nrf24_tx_address>
 		   nrf24_send(rx_arr);
