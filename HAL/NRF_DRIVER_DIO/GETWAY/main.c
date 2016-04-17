@@ -52,7 +52,7 @@ int main()
   {
 	   nrf24_getData(rx_arr);
 
-	   if (count==0)
+	   if (count==1)
 	   {
 
 		   nrf24_tx_address(tx_addressNODE);
@@ -60,13 +60,13 @@ int main()
 		   while(nrf24_isSending());
 		   count=1 ;
 	   }
-	   else if (count==1)
+	   else if (count==0)
 	   {
 		   DIO_u8WritePortVal(3,~rx_arr[0]);
 		   nrf24_tx_address(tx_addressCOR);
 		   nrf24_send(rx_arr);
 		   while(nrf24_isSending());
-		   count=0 ;
+		   //count=0 ;
 	   }
   }
   //_delay_ms(15);
