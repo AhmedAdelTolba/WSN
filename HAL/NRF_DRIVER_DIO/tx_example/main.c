@@ -50,12 +50,12 @@ int main()
 //
 //        /* Automatically goes to TX mode */
 
-        if(flag==1)
+        if(flag==0)
         {
         nrf24_send(data_array);
         while(nrf24_isSending());
         //Auto_ACK();
-    	flag=0 ;
+    	//flag=0 ;
 
         }
         else
