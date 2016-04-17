@@ -15,7 +15,7 @@
 #define mx_retransmetion 15
 
 uint8_t temp;
-uint8_t q = 0xfe;
+uint8_t q = 0x55;
 uint8_t data_array[4];
 uint8_t akc_array[4]={255,255,255,255};
 uint8_t tx_address[5] = {0xAA,0xff,0x12,0xcb,0x57}; // bet7ot el address beta3 el module elly bteb3atlo lw enta tx
