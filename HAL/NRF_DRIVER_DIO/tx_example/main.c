@@ -55,7 +55,7 @@ int main()
         nrf24_send(data_array);
         while(nrf24_isSending());
         //Auto_ACK();
-    	//flag=0 ;
+    	flag=1 ;
 
         }
         else
